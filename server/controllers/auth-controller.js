@@ -1,4 +1,3 @@
-
 const home = async (req, res) => {
   try {
     await res.send("Hello from router home");
@@ -9,7 +8,8 @@ const home = async (req, res) => {
 
 const register = async (req, res) => {
   try {
-    await res.send("Hello register");
+    console.log(req.body);
+    await res.json({ message: req.body });
   } catch (error) {
     console.log(error);
   }
