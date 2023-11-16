@@ -10,14 +10,18 @@ const home = async (req, res) => {
 
 const register = async (req, res) => {
   try {
-    console.log(req.body);
     const { username, email, phone, password } = req.body;
 
     const userExist = await User.findOne({ email });
     if (userExist) {
       return res.status(400).json({ message: "User already exist" });
     }
-    const userCreated = await User.create({ username, email, phone, password });
+    const userCreated = await User.create({
+      username,
+      email,
+      phone,
+      password,
+    });
     res.status(200).json({ userCreated });
   } catch (error) {
     console.log(error);

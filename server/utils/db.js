@@ -1,13 +1,12 @@
 const mongoose = require("mongoose");
 
-const MONGODB_URI =
-  "mongodb+srv://tsheringugyen483:thapa123@cluster0.kqadtvy.mongodb.net/thapa";
+const MONGODB_URI = "mongodb://127.0.0.1:27017/thapa";
 
-const URI = process.env.MONGO_URI;
+// const URI = process.env.MONGO_URI;
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(URI);
+    await mongoose.connect(MONGODB_URI);
     console.log("connection successful");
   } catch (error) {
     console.error("Database connection failed");
