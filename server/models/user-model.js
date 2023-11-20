@@ -40,6 +40,10 @@ userSchema.pre("save", async function (next) {
     next(error);
   }
 });
+// comparePassword method
+userSchema.methods.comparePassword = async function () {
+  return bcrypt.compare(password, userExist.password);
+};
 
 // json webtoken
 userSchema.methods.generateToken = async function () {
